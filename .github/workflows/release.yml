@@ -74,8 +74,14 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      with:
-        submodules: recursive
+
+    - name: Clone Bitcoin Core
+      run: |
+        git clone --depth 1 --branch master https://github.com/bitcoin/bitcoin.git bitcoin-core
+
+    - name: Apply JER patches
+      run: |
+        cp patches/chainparams.cpp bitcoin-core/src/kernel/chainparams.cpp
 
     - name: Install dependencies
       run: |
@@ -125,8 +131,14 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      with:
-        submodules: recursive
+
+    - name: Clone Bitcoin Core
+      run: |
+        git clone --depth 1 --branch master https://github.com/bitcoin/bitcoin.git bitcoin-core
+
+    - name: Apply JER patches
+      run: |
+        cp patches/chainparams.cpp bitcoin-core/src/kernel/chainparams.cpp
 
     - name: Install dependencies
       run: |

@@ -39,22 +39,8 @@ bitcoin.conf
 # BUILD ARTIFACTS
 # ============================================
 
-# Bitcoin Core build directory
-bitcoin-core/build/
-bitcoin-core/bin/
-bitcoin-core/lib/
-bitcoin-core/.deps/
-bitcoin-core/src/*.o
-bitcoin-core/src/.libs/
-bitcoin-core/src/*.la
-bitcoin-core/src/*.lo
-bitcoin-core/autom4te.cache/
-bitcoin-core/config.cache
-bitcoin-core/config.log
-bitcoin-core/config.status
-bitcoin-core/configure~
-bitcoin-core/libtool
-bitcoin-core/stamp-h1
+# Bitcoin Core directory (users clone this separately)
+bitcoin-core/
 
 # CMake
 CMakeCache.txt

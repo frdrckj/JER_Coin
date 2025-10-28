@@ -49,11 +49,20 @@ JER is a cryptocurrency built on Bitcoin Core v30+ with custom network parameter
 git clone https://github.com/frdrckj/JER_Coin.git
 cd JER_Coin
 
+# Run setup script (clones Bitcoin Core and applies JER patches)
+./setup.sh
+
 # Build using provided script
 ./scripts/build-jer.sh
 ```
 
 Build takes 10-30 minutes depending on your hardware.
+
+**What `setup.sh` does:**
+- Clones Bitcoin Core from official repository
+- Applies JER modifications (custom network parameters)
+- Checks for required dependencies
+- Prepares the build environment
 
 ### Run Regtest (Local Testing)
 
@@ -112,28 +121,30 @@ Address Format:     Bech32 (native SegWit)
 
 ```
 jer-cryptocurrency/
-├── bitcoin-core/          # Bitcoin Core source with JER modifications
-│   ├── src/
-│   │   └── kernel/
-│   │       └── chainparams.cpp   # Network configuration
-│   └── build/             # Build artifacts (not in git)
+├── patches/               # JER modifications to Bitcoin Core
+│   ├── chainparams.cpp   # Modified network configuration
+│   └── README.md         # Patch documentation
 ├── scripts/               # Helper scripts
 │   ├── build-jer.sh      # Build script
 │   ├── start-regtest.sh  # Start local test network
 │   ├── stop-node.sh      # Stop any node
 │   ├── test-mining.sh    # Test mining functionality
 │   └── wallet-guide.sh   # Wallet command reference
+├── setup.sh               # Setup script (clones Bitcoin Core, applies patches)
+├── bitcoin-core/          # Bitcoin Core (cloned by setup.sh, not in git)
 └── docs/                  # Documentation (various .md files)
 ```
 
 ### Key Modifications
 
-All modifications are in `bitcoin-core/src/kernel/chainparams.cpp`:
+All modifications are in `patches/chainparams.cpp` (applied to Bitcoin Core):
 
 - **Lines 130-134**: Mainnet magic bytes (JERU) and port (8732)
 - **Line 162**: Mainnet bech32 prefix (jer)
 - **Lines 248-253**: Testnet magic bytes (JERT) and port (18732)
 - **Line 277**: Testnet bech32 prefix (tjer)
+
+**Note**: Only `chainparams.cpp` is modified. All other Bitcoin Core code remains unchanged.
 
 ---
 
