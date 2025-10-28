@@ -185,27 +185,28 @@ jobs:
         ./bin/bitcoin-cli -regtest -datadir=/tmp/jer-test stop || true
         sleep 2
 
-  security-scan:
-    name: Security Scan
-    runs-on: ubuntu-latest
+  # Security scan disabled - requires GitHub Advanced Security
+  # security-scan:
+  #   name: Security Scan
+  #   runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+  #   steps:
+  #   - name: Checkout code
+  #     uses: actions/checkout@v4
 
-    - name: Run Trivy vulnerability scanner
-      uses: aquasecurity/trivy-action@master
-      with:
-        scan-type: 'fs'
-        scan-ref: '.'
-        format: 'sarif'
-        output: 'trivy-results.sarif'
+  #   - name: Run Trivy vulnerability scanner
+  #     uses: aquasecurity/trivy-action@master
+  #     with:
+  #       scan-type: 'fs'
+  #       scan-ref: '.'
+  #       format: 'sarif'
+  #       output: 'trivy-results.sarif'
 
-    - name: Upload Trivy results to GitHub Security tab
-      uses: github/codeql-action/upload-sarif@v3
-      if: always()
-      with:
-        sarif_file: 'trivy-results.sarif'
+  #   - name: Upload Trivy results to GitHub Security tab
+  #     uses: github/codeql-action/upload-sarif@v3
+  #     if: always()
+  #     with:
+  #       sarif_file: 'trivy-results.sarif'
 
   markdown-lint:
     name: Lint Markdown Files
