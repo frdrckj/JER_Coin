@@ -371,11 +371,7 @@ tracking-*.key
 !scripts/*.sh
 !scripts/README.md
 
-# Keep Bitcoin Core source (but not build artifacts)
-!bitcoin-core/
-!bitcoin-core/src/
-!bitcoin-core/src/**/*.cpp
-!bitcoin-core/src/**/*.h
+# Bitcoin Core is now cloned by setup.sh and fully ignored
 
 # ============================================
 # NOTES
