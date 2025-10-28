@@ -1,0 +1,410 @@
+# JER Cryptocurrency - Git Ignore File
+# Keep sensitive and build artifacts out of version control
+
+# ============================================
+# CRITICAL: PRIVATE/CONFIDENTIAL FILES
+# ============================================
+PRIVATE-CONFIDENTIAL.md
+PRIVATE-*.md
+*.private
+*.confidential
+secrets/
+.secrets/
+credentials/
+keys/
+*.key
+*.pem
+
+# Wallet files (NEVER commit these)
+wallet.dat
+*wallet*.dat
+*.wallet
+wallets/
+
+# Private keys and seeds (NEVER commit these)
+*.seed
+*.mnemonic
+*.privatekey
+seed_phrase.txt
+recovery_phrase.txt
+
+# Configuration files with sensitive data
+bitcoin.conf
+*-secret.conf
+.env
+.env.local
+.env.production
+
+# ============================================
+# BUILD ARTIFACTS
+# ============================================
+
+# Bitcoin Core build directory
+bitcoin-core/build/
+bitcoin-core/bin/
+bitcoin-core/lib/
+bitcoin-core/.deps/
+bitcoin-core/src/*.o
+bitcoin-core/src/.libs/
+bitcoin-core/src/*.la
+bitcoin-core/src/*.lo
+bitcoin-core/autom4te.cache/
+bitcoin-core/config.cache
+bitcoin-core/config.log
+bitcoin-core/config.status
+bitcoin-core/configure~
+bitcoin-core/libtool
+bitcoin-core/stamp-h1
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# Compiled binaries
+*.exe
+*.out
+*.app
+*.o
+*.lo
+*.la
+*.so
+*.so.*
+*.dylib
+*.dll
+*.a
+
+# Build outputs
+build/
+dist/
+out/
+target/
+
+# ============================================
+# BITCOIN DATA DIRECTORIES
+# ============================================
+
+# Blockchain data (too large for git)
+blocks/
+chainstate/
+indexes/
+
+# Database files
+*.dat
+*.log
+!CLAUDE.md
+!*.md
+
+# Peer data
+peers.dat
+banlist.dat
+anchors.dat
+
+# Mempool
+mempool.dat
+
+# Fee estimates
+fee_estimates.dat
+
+# ============================================
+# LOGS AND DEBUG FILES
+# ============================================
+
+# Bitcoin Core logs
+debug.log
+debug-*.log
+*.log
+
+# General logs
+logs/
+*.log.*
+*.log.gz
+
+# Core dumps
+core
+core.*
+*.core
+*.dump
+
+# ============================================
+# OPERATING SYSTEM FILES
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.directory
+.Trash-*
+.nfs*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# ============================================
+# EDITORS AND IDEs
+# ============================================
+
+# VS Code
+.vscode/
+*.code-workspace
+.history/
+
+# JetBrains (IntelliJ, CLion, etc.)
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+.idea_modules/
+
+# Vim
+*.swp
+*.swo
+*.swn
+*~
+.*.sw?
+Session.vim
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime_metrics
+*.sublime_session
+*.last-run
+
+# Atom
+.atom/
+
+# ============================================
+# TEMPORARY FILES
+# ============================================
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+*.cache
+
+# ============================================
+# TESTING AND DEVELOPMENT
+# ============================================
+
+# Test coverage
+coverage/
+*.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Node modules (if you add any JS tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python (if you use any Python scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+.eggs/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ============================================
+# DEPLOYMENT AND CLOUD
+# ============================================
+
+# Terraform (if you use it for infrastructure)
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform.lock.hcl
+
+# Docker (if you containerize)
+*.log
+docker-compose.override.yml
+
+# Kubernetes
+*.kubeconfig
+
+# SSH keys
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+known_hosts
+
+# ============================================
+# PACKAGE MANAGERS
+# ============================================
+
+# Homebrew
+Brewfile.lock.json
+
+# ============================================
+# PROJECT SPECIFIC
+# ============================================
+
+# Old/backup versions of modified files
+chainparams.cpp.bak*
+chainparams.cpp.old*
+chainparams.cpp.orig*
+*.cpp.bak
+*.cpp.old
+
+# Genesis mining artifacts (from when we experimented)
+genesis_miner
+gpu_genesis_miner
+genesis_*.py
+
+# Test results
+test-results/
+test-output/
+
+# ============================================
+# DOCUMENTATION DRAFTS
+# ============================================
+
+# Keep private drafts out
+DRAFT-*.md
+TODO-private.md
+NOTES-*.md
+
+# ============================================
+# SENSITIVE OPERATIONS DATA
+# ============================================
+
+# Seed node configs (may contain IPs you don't want public yet)
+seednode-*.conf
+production-*.conf
+
+# Monitoring credentials
+monitoring-credentials.json
+alert-config-private.json
+
+# Analytics keys
+analytics-*.key
+tracking-*.key
+
+# ============================================
+# ARCHIVES AND COMPRESSED FILES
+# ============================================
+
+# Generally don't commit large archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bz2
+*.xz
+
+# Exception: keep documentation archives if needed
+!docs*.zip
+!release*.tar.gz
+
+# ============================================
+# KEEP THESE FILES (EXCEPTIONS)
+# ============================================
+
+# Important: Always include these
+!.gitignore
+!README.md
+!LICENSE
+!CLAUDE.md
+!CONFIGURATION-COMPLETE.md
+!NETWORK-CONFIGURATION.md
+!YOUR-PRODUCTION-PLAN.md
+!BUILD-SUCCESS-SUMMARY.md
+!NEXT-STEPS-CHECKLIST.md
+!PRODUCTION-ROADMAP.md
+
+# Keep scripts
+!scripts/
+!scripts/*.sh
+!scripts/README.md
+
+# Keep Bitcoin Core source (but not build artifacts)
+!bitcoin-core/
+!bitcoin-core/src/
+!bitcoin-core/src/**/*.cpp
+!bitcoin-core/src/**/*.h
+
+# ============================================
+# NOTES
+# ============================================
+
+# This .gitignore is comprehensive for a cryptocurrency project
+# Key priorities:
+# 1. Never commit private keys, wallets, or seeds
+# 2. Never commit PRIVATE-CONFIDENTIAL.md
+# 3. Never commit build artifacts (too large)
+# 4. Never commit blockchain data (too large)
+# 5. Keep source code and documentation
+#
+# Before committing, always review with: git status
+# Double-check: git diff --cached
+#
+# To add an exception: use ! prefix (like !README.md)
