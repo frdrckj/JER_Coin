@@ -1,7 +1,7 @@
 # Claude Context - Jer Cryptocurrency Project
 
 **Last Updated**: October 28, 2025
-**Status**: ✅ Production-ready - Network configured, built, tested, and working
+**Status**: ✅ Production-ready - Repository restructured, GitHub setup complete, ready for testnet deployment
 
 ---
 
@@ -14,18 +14,36 @@
 - Testnet: Magic bytes JERT (0x4a455254), Port 18732, Addresses tjer1...
 - Regtest: Bitcoin defaults (for development compatibility)
 
+**Repository Structure:**
+- Professional Bitcoin fork structure with patches
+- Bitcoin Core cloned separately (not in git)
+- Small, fast repository (~5MB vs ~1GB)
+- GitHub Actions CI/CD working
+- Multi-machine development ready
+
 ---
 
 ## Current State
 
-### ✅ What's Complete
+### ✅ What's Complete (October 28, 2025)
+
+**Phase 1: Configuration & Setup** ✅
 - **Network Configuration**: Unique magic bytes (JERU/JERT), custom ports (8732/18732), custom addresses (jer1/tjer1)
 - **Genesis Blocks**: Custom genesis blocks for mainnet, testnet, and regtest
 - **Build System**: Bitcoin Core successfully built with CMake (no autotools)
 - **Binaries**: All binaries compiled and working (bitcoind, bitcoin-cli, etc.)
 - **Testing**: Regtest network fully tested (mining, wallets, transactions work)
-- **Scripts**: Helper scripts for building, starting, stopping, testing
+- **Scripts**: Helper scripts for building, starting, stopping, testing, syncing patches
 - **Documentation**: Complete network configuration, production roadmap, next steps
+
+**Repository & GitHub Setup** ✅
+- **Professional Structure**: Patches-based Bitcoin fork (industry standard)
+- **GitHub Repository**: https://github.com/frdrckj/JER_Coin
+- **CI/CD**: GitHub Actions workflows for automated builds (Linux, macOS)
+- **Community Files**: LICENSE (MIT), CONTRIBUTING.md, CODE_OF_CONDUCT.md
+- **Issue Templates**: Bug reports, feature requests, pull request template
+- **Roadmap**: 16 detailed issues across all phases documented
+- **Multi-Machine Support**: Setup and sync scripts for development across devices
 
 ### 📍 Current Configuration
 - **Build System**: CMake (not autotools)
@@ -77,9 +95,14 @@ Message:     "Jer Regtest - Development network"
 ## Critical File Locations
 
 ### Modified Source Files
-```
-bitcoin-core/src/kernel/chainparams.cpp
-```
+
+**All modifications are in:** `patches/chainparams.cpp`
+
+This file is applied to `bitcoin-core/src/kernel/chainparams.cpp` via:
+- `./setup.sh` (initial setup)
+- `./scripts/sync-patches.sh` (after git pull)
+
+**Key modifications:**
 - **Line 130-134**: Mainnet magic bytes (JERU) and port (8732)
 - **Line 138-143**: Mainnet genesis block
 - **Line 162**: Mainnet bech32 prefix (jer)
@@ -88,24 +111,38 @@ bitcoin-core/src/kernel/chainparams.cpp
 - **Line 277**: Testnet bech32 prefix (tjer)
 - **Line 619-624**: Regtest genesis block (unchanged)
 
-### Binaries
-```
-bitcoin-core/build/bin/
-├── bitcoind         # Daemon
-├── bitcoin-cli      # CLI tool
-├── bitcoin-tx       # Transaction utility
-└── bitcoin-wallet   # Wallet tool
-```
+**Only chainparams.cpp is modified** - all other Bitcoin Core code remains unchanged.
 
-### Scripts
+### Repository Structure
 ```
-scripts/
-├── build-jer.sh         # Build the project
-├── start-regtest.sh     # Start regtest node
-├── stop-node.sh         # Stop any node
-├── test-mining.sh       # Test mining functionality
-├── wallet-guide.sh      # Wallet command reference
-└── README.md            # Scripts documentation
+JER_Coin/
+├── patches/                  # Your modifications (IN GIT)
+│   ├── chainparams.cpp      # Modified network config
+│   └── README.md            # Patch documentation
+│
+├── scripts/                  # Helper scripts (IN GIT)
+│   ├── build-jer.sh         # Build the project
+│   ├── start-regtest.sh     # Start regtest node
+│   ├── stop-node.sh         # Stop any node
+│   ├── test-mining.sh       # Test mining functionality
+│   ├── wallet-guide.sh      # Wallet command reference
+│   ├── sync-patches.sh      # Sync patches after git pull
+│   └── README.md            # Scripts documentation
+│
+├── setup.sh                  # Setup script (IN GIT)
+├── bitcoin-core/             # Bitcoin Core (NOT in git, cloned locally)
+│   └── build/bin/
+│       ├── bitcoind         # Daemon
+│       ├── bitcoin-cli      # CLI tool
+│       ├── bitcoin-tx       # Transaction utility
+│       └── bitcoin-wallet   # Wallet tool
+│
+├── .github/                  # GitHub config (IN GIT)
+│   ├── workflows/           # CI/CD
+│   ├── ISSUE_TEMPLATE/      # Issue templates
+│   └── ROADMAP_ISSUES.md    # Roadmap guide
+│
+└── [documentation]           # All .md files (IN GIT)
 ```
 
 ### Data Directories
@@ -263,28 +300,52 @@ Last test (October 28, 2025):
 
 ## Next Steps for Production
 
-### ✅ Configuration Phase (COMPLETE)
-- Network magic bytes configured (JERU/JERT)
-- Custom ports configured (8732/18732)
-- Custom address prefixes (jer1/tjer1)
-- Genesis blocks created
-- Build completed and tested
+### ✅ Phase 1: Configuration & GitHub Setup (COMPLETE)
+- ✅ Network magic bytes configured (JERU/JERT)
+- ✅ Custom ports configured (8732/18732)
+- ✅ Custom address prefixes (jer1/tjer1)
+- ✅ Genesis blocks created
+- ✅ Build completed and tested
+- ✅ GitHub repository created and configured
+- ✅ CI/CD workflows set up
+- ✅ Professional structure implemented
+- ✅ Documentation complete
 
-### 🔜 Next Phase: Testnet Deployment
-Read `CONFIGURATION-COMPLETE.md` for detailed roadmap.
+### 🔜 Phase 2: Testnet Deployment (NEXT)
+
+**Important Files:**
+- Read `.github/ROADMAP_ISSUES.md` for all 16 issues to create
+- Read `CONFIGURATION-COMPLETE.md` for detailed deployment guide
+- Read `REPOSITORY-RESTRUCTURE-COMPLETE.md` for structure changes
 
 **Immediate Next Steps:**
-1. **Sign up for free VPS** (Oracle Cloud + Google Cloud = 3 free nodes)
-2. **Deploy testnet seed nodes** (instructions in NETWORK-CONFIGURATION.md)
-3. **Launch testnet** and invite early testers
-4. **Build community** (Discord/Telegram, website, social media)
+1. **Create GitHub Issues** from roadmap (track progress)
+2. **Sign up for free VPS** (Oracle Cloud + Google Cloud = 3 free nodes)
+3. **Deploy testnet seed nodes** on free VPS
+4. **Update chainparams.cpp** with seed node IPs
+5. **Launch testnet** and invite early testers
+6. **Create community channels** (Discord/Telegram)
+7. **Build website** (GitHub Pages - free)
 
-**Before Production Mainnet:**
-1. **Security audit** ($10K-100K) - CRITICAL
-2. **Legal review** ($5K-20K) - CRITICAL
-3. **Mine proper difficulty genesis** (current is easy/insecure)
-4. **Upgrade infrastructure** (paid VPS for reliability)
-5. **Launch mainnet** with proper support
+**Timeline:** 1-3 months
+
+### 🔮 Phase 3: Community Growth (Months 3-6)
+- Build testnet user base (100+ testers goal)
+- Create block explorer
+- Fix bugs and gather feedback
+- Build reputation and credibility
+
+### 💰 Phase 4: Fundraising (Months 6-9)
+- Community donations
+- Apply for grants
+- Raise $15-20K for audit/legal
+
+### 🚀 Phase 5: Production Mainnet (Months 9-12)
+- **Security audit** ($10K-100K) - CRITICAL
+- **Legal review** ($5K-20K) - CRITICAL
+- **Mine proper difficulty genesis** (current is easy/insecure)
+- **Upgrade infrastructure** (paid VPS for reliability)
+- **Launch mainnet** with proper support
 
 ---
 
@@ -355,9 +416,16 @@ Before ending session:
 
 ---
 
-**Status**: Configuration phase complete. Network configured with JERU/JERT magic bytes, custom ports, and jer1/tjer1 addresses. All systems built, tested, and working. Ready for testnet deployment phase.
+**Status**: Phase 1 complete (Configuration & GitHub). Repository restructured professionally, CI/CD working, multi-machine development ready. Network configured with JERU/JERT magic bytes, custom ports, and jer1/tjer1 addresses. Ready for Phase 2: Testnet Deployment.
 
 **Key Files to Read:**
-- `CONFIGURATION-COMPLETE.md` - Status summary and next steps
+- `CONFIGURATION-COMPLETE.md` - Status summary and production roadmap
+- `REPOSITORY-RESTRUCTURE-COMPLETE.md` - Professional structure changes
+- `GITHUB-SETUP-COMPLETE.md` - GitHub setup details
 - `NETWORK-CONFIGURATION.md` - Complete technical details
 - `YOUR-PRODUCTION-PLAN.md` - $0 budget roadmap
+- `.github/ROADMAP_ISSUES.md` - 16 issues to create on GitHub
+
+**Multi-Machine Workflow:**
+- MacBook: Edit, commit, push
+- Mac Mini: `git pull` → `./scripts/sync-patches.sh` → `./scripts/build-jer.sh`
