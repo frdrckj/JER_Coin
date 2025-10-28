@@ -82,7 +82,6 @@ indexes/
 *.dat
 *.log
 !CLAUDE.md
-!*.md
 
 # Peer data
 peers.dat
