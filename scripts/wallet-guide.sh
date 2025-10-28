@@ -6,7 +6,11 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-BITCOIN_CLI="../bitcoin-core/build/bin/bitcoin-cli"
+# Get script directory and project root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+BITCOIN_CLI="$PROJECT_ROOT/bitcoin-core/build/bin/bitcoin-cli"
 NETWORK="${1:-regtest}"
 
 echo "======================================================================"

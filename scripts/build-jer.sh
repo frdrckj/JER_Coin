@@ -55,7 +55,9 @@ cmake .. \
     -DBUILD_BENCH=OFF \
     -DENABLE_WALLET=ON \
     -DWITH_BDB=ON \
-    -DENABLE_IPC=OFF
+    -DENABLE_IPC=OFF \
+    -DBUILD_TX=ON \
+    -DBUILD_WALLET_TOOL=ON
 
 if [ $? -ne 0 ]; then
     echo -e "${RED}Error: CMake configuration failed${NC}"

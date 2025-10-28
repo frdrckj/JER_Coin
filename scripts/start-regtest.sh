@@ -7,8 +7,12 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-BITCOIND="../bitcoin-core/build/bin/bitcoind"
-BITCOIN_CLI="../bitcoin-core/build/bin/bitcoin-cli"
+# Get script directory and project root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+BITCOIND="$PROJECT_ROOT/bitcoin-core/build/bin/bitcoind"
+BITCOIN_CLI="$PROJECT_ROOT/bitcoin-core/build/bin/bitcoin-cli"
 
 if [ ! -f "$BITCOIND" ]; then
     echo "Error: bitcoind not found. Please run ./scripts/build-jer.sh first"
