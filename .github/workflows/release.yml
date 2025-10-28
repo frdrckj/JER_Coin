@@ -1,0 +1,165 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  create-release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: JER ${{ github.ref }}
+        draft: true
+        prerelease: true
+        body: |
+          ## JER Cryptocurrency Release
+
+          **⚠️ WARNING: EXPERIMENTAL SOFTWARE - USE AT YOUR OWN RISK**
+
+          This is a pre-release version of JER cryptocurrency.
+
+          ### What's Included
+          - JER Core binaries for Linux, macOS, and Windows
+          - Configuration files
+          - Documentation
+
+          ### Installation
+
+          1. Download the appropriate binary for your platform
+          2. Extract the archive
+          3. Follow the instructions in README.md
+
+          ### Network Configuration
+
+          - **Mainnet**: Port 8732, Address prefix `jer1`
+          - **Testnet**: Port 18732, Address prefix `tjer1`
+          - **Regtest**: Port 18444, Address prefix `bcrt1`
+
+          ### ⚠️ Important Notices
+
+          - This software has NOT been professionally audited
+          - This is for TESTING and DEVELOPMENT purposes
+          - DO NOT use for production or real monetary value
+          - See CONFIGURATION-COMPLETE.md for production requirements
+
+          ### Changes in This Release
+
+          [Add your changelog here]
+
+          ### Checksums
+
+          [Will be added after build]
+
+  build-release-linux:
+    name: Build Release (Linux)
+    needs: create-release
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          build-essential cmake pkg-config \
+          libboost-all-dev libevent-dev libssl-dev \
+          libdb++-dev libminiupnpc-dev libzmq3-dev \
+          libqrencode-dev libsqlite3-dev
+
+    - name: Build
+      run: |
+        cd bitcoin-core
+        mkdir -p build && cd build
+        cmake .. -DCMAKE_BUILD_TYPE=Release \
+          -DBUILD_GUI=OFF -DBUILD_TESTS=OFF \
+          -DENABLE_WALLET=ON -DENABLE_IPC=OFF
+        cmake --build . -j$(nproc)
+
+    - name: Package binaries
+      run: |
+        mkdir -p release/jer-linux-x64
+        cp bitcoin-core/build/bin/bitcoind release/jer-linux-x64/jerd
+        cp bitcoin-core/build/bin/bitcoin-cli release/jer-linux-x64/jer-cli
+        cp bitcoin-core/build/bin/bitcoin-tx release/jer-linux-x64/jer-tx
+        cp bitcoin-core/build/bin/bitcoin-wallet release/jer-linux-x64/jer-wallet
+        cp README.md LICENSE release/jer-linux-x64/
+        cd release
+        tar czf jer-linux-x64.tar.gz jer-linux-x64/
+        sha256sum jer-linux-x64.tar.gz > jer-linux-x64.tar.gz.sha256
+
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ needs.create-release.outputs.upload_url }}
+        asset_path: ./release/jer-linux-x64.tar.gz
+        asset_name: jer-linux-x64.tar.gz
+        asset_content_type: application/gzip
+
+  build-release-macos:
+    name: Build Release (macOS)
+    needs: create-release
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Install dependencies
+      run: |
+        brew install cmake pkg-config boost libevent \
+          sqlite berkeley-db@4 miniupnpc zeromq qrencode
+
+    - name: Build
+      run: |
+        cd bitcoin-core
+        mkdir -p build && cd build
+        cmake .. -DCMAKE_BUILD_TYPE=Release \
+          -DBUILD_GUI=OFF -DBUILD_TESTS=OFF \
+          -DENABLE_WALLET=ON -DENABLE_IPC=OFF
+        cmake --build . -j$(sysctl -n hw.ncpu)
+
+    - name: Package binaries
+      run: |
+        mkdir -p release/jer-macos-x64
+        cp bitcoin-core/build/bin/bitcoind release/jer-macos-x64/jerd
+        cp bitcoin-core/build/bin/bitcoin-cli release/jer-macos-x64/jer-cli
+        cp bitcoin-core/build/bin/bitcoin-tx release/jer-macos-x64/jer-tx
+        cp bitcoin-core/build/bin/bitcoin-wallet release/jer-macos-x64/jer-wallet
+        cp README.md LICENSE release/jer-macos-x64/
+        cd release
+        tar czf jer-macos-x64.tar.gz jer-macos-x64/
+        shasum -a 256 jer-macos-x64.tar.gz > jer-macos-x64.tar.gz.sha256
+
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ needs.create-release.outputs.upload_url }}
+        asset_path: ./release/jer-macos-x64.tar.gz
+        asset_name: jer-macos-x64.tar.gz
+        asset_content_type: application/gzip

@@ -1,0 +1,212 @@
+name: Build JER
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  build-linux:
+    name: Build on Linux
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          build-essential \
+          cmake \
+          pkg-config \
+          libboost-all-dev \
+          libevent-dev \
+          libssl-dev \
+          libdb++-dev \
+          libminiupnpc-dev \
+          libzmq3-dev \
+          libqrencode-dev \
+          libsqlite3-dev
+
+    - name: Configure CMake
+      run: |
+        cd bitcoin-core
+        mkdir -p build
+        cd build
+        cmake .. \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DBUILD_GUI=OFF \
+          -DBUILD_TESTS=OFF \
+          -DBUILD_BENCH=OFF \
+          -DENABLE_WALLET=ON \
+          -DWITH_BDB=ON \
+          -DENABLE_IPC=OFF
+
+    - name: Build
+      run: |
+        cd bitcoin-core/build
+        cmake --build . -j$(nproc)
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: jer-linux-x64
+        path: |
+          bitcoin-core/build/bin/bitcoind
+          bitcoin-core/build/bin/bitcoin-cli
+          bitcoin-core/build/bin/bitcoin-tx
+          bitcoin-core/build/bin/bitcoin-wallet
+        retention-days: 7
+
+  build-macos:
+    name: Build on macOS
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Install dependencies
+      run: |
+        brew update
+        brew install \
+          cmake \
+          pkg-config \
+          boost \
+          libevent \
+          sqlite \
+          berkeley-db@4 \
+          miniupnpc \
+          zeromq \
+          qrencode
+
+    - name: Configure CMake
+      run: |
+        cd bitcoin-core
+        mkdir -p build
+        cd build
+        cmake .. \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DBUILD_GUI=OFF \
+          -DBUILD_TESTS=OFF \
+          -DBUILD_BENCH=OFF \
+          -DENABLE_WALLET=ON \
+          -DWITH_BDB=ON \
+          -DENABLE_IPC=OFF
+
+    - name: Build
+      run: |
+        cd bitcoin-core/build
+        cmake --build . -j$(sysctl -n hw.ncpu)
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: jer-macos-x64
+        path: |
+          bitcoin-core/build/bin/bitcoind
+          bitcoin-core/build/bin/bitcoin-cli
+          bitcoin-core/build/bin/bitcoin-tx
+          bitcoin-core/build/bin/bitcoin-wallet
+        retention-days: 7
+
+  test-regtest:
+    name: Test on Regtest
+    needs: [build-linux]
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Download Linux build
+      uses: actions/download-artifact@v4
+      with:
+        name: jer-linux-x64
+        path: ./bin
+
+    - name: Make binaries executable
+      run: chmod +x ./bin/*
+
+    - name: Start regtest node
+      run: |
+        ./bin/bitcoind -regtest -daemon -datadir=/tmp/jer-test
+        sleep 5
+
+    - name: Check node status
+      run: |
+        ./bin/bitcoin-cli -regtest -datadir=/tmp/jer-test getblockchaininfo
+
+    - name: Create wallet and test mining
+      run: |
+        # Create wallet
+        ./bin/bitcoin-cli -regtest -datadir=/tmp/jer-test createwallet "test"
+
+        # Get address
+        ADDRESS=$(./bin/bitcoin-cli -regtest -datadir=/tmp/jer-test getnewaddress)
+        echo "Generated address: $ADDRESS"
+
+        # Mine blocks
+        ./bin/bitcoin-cli -regtest -datadir=/tmp/jer-test generatetoaddress 101 "$ADDRESS"
+
+        # Check balance
+        BALANCE=$(./bin/bitcoin-cli -regtest -datadir=/tmp/jer-test getbalance)
+        echo "Balance: $BALANCE JER"
+
+        # Verify we got the expected reward
+        if [ "$BALANCE" != "50.00000000" ]; then
+          echo "ERROR: Expected balance 50 JER, got $BALANCE"
+          exit 1
+        fi
+
+    - name: Stop node
+      if: always()
+      run: |
+        ./bin/bitcoin-cli -regtest -datadir=/tmp/jer-test stop || true
+        sleep 2
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+
+    - name: Upload Trivy results to GitHub Security tab
+      uses: github/codeql-action/upload-sarif@v3
+      if: always()
+      with:
+        sarif_file: 'trivy-results.sarif'
+
+  markdown-lint:
+    name: Lint Markdown Files
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Markdown Lint
+      uses: articulate/actions-markdownlint@v1
+      with:
+        config: .markdownlint.json
+        files: '*.md'
+        ignore: node_modules
+      continue-on-error: true
