@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git log:*)",
+      "Bash(while read hash msg)",
+      "Bash(do echo \"=== $hash ===\")",
+      "Bash(git show:*)",
+      "Bash(done)",
+      "Bash(git branch:*)",
+      "Bash(git reset:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

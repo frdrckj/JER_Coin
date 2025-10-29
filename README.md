@@ -56,7 +56,6 @@ cd JER_Coin
 ./scripts/build-jer.sh
 ```
 
-Build takes 10-30 minutes depending on your hardware.
 
 **What `setup.sh` does:**
 - Clones Bitcoin Core from official repository
@@ -84,16 +83,6 @@ Build takes 10-30 minutes depending on your hardware.
 
 ## 📊 Specifications
 
-### Economic Parameters
-
-```
-Block Reward:       50 JER
-Halving Interval:   210,000 blocks (~4 years)
-Maximum Supply:     21,000,000 JER
-Block Time:         10 minutes (target)
-Difficulty Adjust:  Every 2,016 blocks (~2 weeks)
-```
-
 ### Technical Details
 
 ```
@@ -102,16 +91,6 @@ Build System:       CMake
 Consensus:          Proof of Work (SHA-256)
 Address Format:     Bech32 (native SegWit)
 ```
-
----
-
-## 📚 Documentation
-
-- **[CLAUDE.md](CLAUDE.md)** - Quick context and project state
-- **[CONFIGURATION-COMPLETE.md](CONFIGURATION-COMPLETE.md)** - Configuration status and next steps
-- **[NETWORK-CONFIGURATION.md](NETWORK-CONFIGURATION.md)** - Complete network technical details
-- **[YOUR-PRODUCTION-PLAN.md](YOUR-PRODUCTION-PLAN.md)** - Production deployment roadmap
-- **[BUILD-SUCCESS-SUMMARY.md](BUILD-SUCCESS-SUMMARY.md)** - Build history and verification
 
 ---
 
@@ -147,165 +126,3 @@ All modifications are in `patches/chainparams.cpp` (applied to Bitcoin Core):
 **Note**: Only `chainparams.cpp` is modified. All other Bitcoin Core code remains unchanged.
 
 ---
-
-## 🔧 Configuration
-
-### Network Configuration
-
-The network is configured with unique parameters to prevent conflicts:
-
-```cpp
-// Mainnet
-Magic Bytes: 0x4a455255 (JERU)
-Port:        8732
-Prefix:      jer1
-
-// Testnet
-Magic Bytes: 0x4a455254 (JERT)
-Port:        18732
-Prefix:      tjer1
-```
-
-### Genesis Blocks
-
-Custom genesis blocks for all networks:
-
-```
-Mainnet:  47a8ab4e7af4ae494bfb35503a7f8e49fd309876b2765a0fc225f99478d923c0
-Testnet:  7ef5fad34553266ff67470ce8876aa90895f39be8b78ed301c184ac8934cfd41
-Regtest:  23ed3a57f87b65a0b4a50e820eefa73b16530dbca359e0803d55843a8238d96e
-```
-
----
-
-## 🌐 Network Status
-
-### Current Phase: Configuration Complete ✅
-
-- ✅ Network parameters configured
-- ✅ Build system working
-- ✅ Local testing verified
-- ✅ Documentation complete
-
-### Next Phase: Testnet Deployment
-
-See [CONFIGURATION-COMPLETE.md](CONFIGURATION-COMPLETE.md) for the deployment roadmap.
-
----
-
-## ⚠️ Important Notices
-
-### Development Status
-
-**This is experimental software. Use at your own risk.**
-
-- ⚠️ **Not production-ready**: Current genesis uses easy difficulty
-- ⚠️ **No security audit**: Has not been professionally audited
-- ⚠️ **No legal review**: Regulatory compliance not verified
-- ⚠️ **Testnet first**: Start with testnet before considering mainnet
-
-### Security
-
-- 🔒 Never share private keys or wallet files
-- 🔒 Always use testnet for experimentation
-- 🔒 Keep recovery seeds offline and secure
-- 🔒 Enable 2FA on all accounts
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-1. **Test**: Run regtest and report issues
-2. **Document**: Improve documentation
-3. **Code Review**: Review code changes
-4. **Community**: Join discussions and help others
-
-### Development Workflow
-
-```bash
-# Fork the repository
-# Create a feature branch
-git checkout -b feature/your-feature
-
-# Make changes and test
-./scripts/build-jer.sh
-./scripts/start-regtest.sh
-
-# Commit and push
-git commit -m "Description of changes"
-git push origin feature/your-feature
-
-# Open a Pull Request
-```
-
----
-
-## 📝 License
-
-This project is based on Bitcoin Core and inherits its MIT License.
-
-See [LICENSE](LICENSE) for details.
-
----
-
-## 🔗 Links
-
-- **Repository**: https://github.com/frdrckj/JER_Coin
-- **Issues**: https://github.com/frdrckj/JER_Coin/issues
-- **Discussions**: https://github.com/frdrckj/JER_Coin/discussions
-
----
-
-## 💬 Community
-
-Join the JER community:
-
-- **Discord**: [Coming Soon]
-- **Telegram**: [Coming Soon]
-- **Twitter**: [Coming Soon]
-
----
-
-## 📞 Support
-
-- **Documentation**: Check the docs/ folder
-- **Issues**: Open an issue on GitHub
-- **Security**: Email security concerns privately
-
----
-
-## 🙏 Acknowledgments
-
-- **Bitcoin Core**: Built on the shoulders of giants
-- **Community**: Thanks to all testers and contributors
-
----
-
-## 📈 Roadmap
-
-### Phase 1: Configuration ✅ (Complete)
-- Network parameters
-- Build system
-- Local testing
-
-### Phase 2: Testnet (Next)
-- Deploy seed nodes
-- Community launch
-- Thorough testing
-
-### Phase 3: Community Growth
-- Build user base
-- Gather feedback
-- Continuous improvement
-
-### Phase 4: Production (Future)
-- Security audit
-- Legal review
-- Mainnet launch
-
----
-
-**Built with ❤️ by the JER community**
-

@@ -1,0 +1,48 @@
+{
+  "name": "Jer Cryptocurrency Testnet Node",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "installOhMyZsh": false,
+      "upgradePackages": true
+    },
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest"
+    }
+  },
+
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+
+  "forwardPorts": [18732, 18733],
+
+  "portsAttributes": {
+    "18732": {
+      "label": "Jer Testnet P2P",
+      "onAutoForward": "notify"
+    },
+    "18733": {
+      "label": "Jer Testnet RPC",
+      "onAutoForward": "ignore"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+
+  "remoteUser": "vscode",
+
+  "mounts": [
+    "source=jer-testnet-data,target=/home/vscode/.bitcoin,type=volume"
+  ]
+}

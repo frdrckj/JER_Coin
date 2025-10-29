@@ -1,0 +1,246 @@
+======================================================================
+JER CRYPTOCURRENCY - GENESIS BLOCK MINER
+======================================================================
+
+Mining Configuration:
+  Timestamp:   1761721935
+  Difficulty:  0x1d00ffff
+  Target:      00000000ffff0000000000000000000000000000000000000000000000000000
+  Merkle Root: 25da88c5d4c2f2a89148f6bfe33862805bea3edb7712ae9babf5709aa1f99658
+
+Mining will try multiple timestamps if needed...
+
+Nonce:   31528893 | Time:     10s | Rate:   3152.9 KH/s | Progress: 0.734%
+Nonce:   61012456 | Time:     20s | Rate:   3050.6 KH/s | Progress: 1.421%
+Nonce:   91673630 | Time:     30s | Rate:   3055.8 KH/s | Progress: 2.134%
+Nonce:  122222453 | Time:     40s | Rate:   3055.6 KH/s | Progress: 2.846%
+Nonce:  152637967 | Time:     50s | Rate:   3052.8 KH/s | Progress: 3.554%
+Nonce:  182947308 | Time:     60s | Rate:   3049.1 KH/s | Progress: 4.260%
+Nonce:  213289233 | Time:     70s | Rate:   3047.0 KH/s | Progress: 4.966%
+Nonce:  243534412 | Time:     80s | Rate:   3044.2 KH/s | Progress: 5.670%
+Nonce:  273954329 | Time:     90s | Rate:   3043.9 KH/s | Progress: 6.378%
+Nonce:  304453983 | Time:    100s | Rate:   3044.5 KH/s | Progress: 7.089%
+Nonce:  334861309 | Time:    110s | Rate:   3044.2 KH/s | Progress: 7.797%
+Nonce:  365006091 | Time:    120s | Rate:   3041.7 KH/s | Progress: 8.498%
+Nonce:  395125153 | Time:    130s | Rate:   3039.4 KH/s | Progress: 9.200%
+Nonce:  425601876 | Time:    140s | Rate:   3040.0 KH/s | Progress: 9.909%
+Nonce:  456134164 | Time:    150s | Rate:   3040.9 KH/s | Progress: 10.620%
+Nonce:  486696275 | Time:    160s | Rate:   3041.9 KH/s | Progress: 11.332%
+Nonce:  517159672 | Time:    170s | Rate:   3042.1 KH/s | Progress: 12.041%
+Nonce:  547685832 | Time:    180s | Rate:   3042.7 KH/s | Progress: 12.752%
+Nonce:  578298359 | Time:    190s | Rate:   3043.7 KH/s | Progress: 13.465%
+Nonce:  608825414 | Time:    200s | Rate:   3044.1 KH/s | Progress: 14.175%
+Nonce:  639389842 | Time:    210s | Rate:   3044.7 KH/s | Progress: 14.887%
+Nonce:  669951371 | Time:    220s | Rate:   3045.2 KH/s | Progress: 15.599%
+Nonce:  700557670 | Time:    230s | Rate:   3045.9 KH/s | Progress: 16.311%
+Nonce:  731121318 | Time:    240s | Rate:   3046.3 KH/s | Progress: 17.023%
+Nonce:  761594203 | Time:    250s | Rate:   3046.4 KH/s | Progress: 17.732%
+Nonce:  792088921 | Time:    260s | Rate:   3046.5 KH/s | Progress: 18.442%
+Nonce:  822589713 | Time:    270s | Rate:   3046.6 KH/s | Progress: 19.152%
+Nonce:  853154758 | Time:    280s | Rate:   3047.0 KH/s | Progress: 19.864%
+Nonce:  883805595 | Time:    290s | Rate:   3047.6 KH/s | Progress: 20.578%
+Nonce:  914359639 | Time:    300s | Rate:   3047.9 KH/s | Progress: 21.289%
+Nonce:  944910683 | Time:    310s | Rate:   3048.1 KH/s | Progress: 22.000%
+Nonce:  975436639 | Time:    320s | Rate:   3048.2 KH/s | Progress: 22.711%
+Nonce: 1005928798 | Time:    330s | Rate:   3048.3 KH/s | Progress: 23.421%
+Nonce: 1036375852 | Time:    340s | Rate:   3048.2 KH/s | Progress: 24.130%
+Nonce: 1066770039 | Time:    350s | Rate:   3047.9 KH/s | Progress: 24.838%
+Nonce: 1097180412 | Time:    360s | Rate:   3047.7 KH/s | Progress: 25.546%
+Nonce: 1127739794 | Time:    370s | Rate:   3047.9 KH/s | Progress: 26.257%
+Nonce: 1158234939 | Time:    380s | Rate:   3048.0 KH/s | Progress: 26.967%
+Nonce: 1188682168 | Time:    390s | Rate:   3047.9 KH/s | Progress: 27.676%
+Nonce: 1219193627 | Time:    400s | Rate:   3048.0 KH/s | Progress: 28.387%
+Nonce: 1249809481 | Time:    410s | Rate:   3048.3 KH/s | Progress: 29.099%
+Nonce: 1280341594 | Time:    420s | Rate:   3048.4 KH/s | Progress: 29.810%
+Nonce: 1310878673 | Time:    430s | Rate:   3048.6 KH/s | Progress: 30.521%
+Nonce: 1341338578 | Time:    440s | Rate:   3048.5 KH/s | Progress: 31.230%
+Nonce: 1371800139 | Time:    450s | Rate:   3048.4 KH/s | Progress: 31.940%
+Nonce: 1402300544 | Time:    460s | Rate:   3048.5 KH/s | Progress: 32.650%
+Nonce: 1432824579 | Time:    470s | Rate:   3048.6 KH/s | Progress: 33.361%
+Nonce: 1463358861 | Time:    480s | Rate:   3048.7 KH/s | Progress: 34.071%
+Nonce: 1493710087 | Time:    490s | Rate:   3048.4 KH/s | Progress: 34.778%
+Nonce: 1524173668 | Time:    500s | Rate:   3048.3 KH/s | Progress: 35.487%
+Nonce: 1554834312 | Time:    510s | Rate:   3048.7 KH/s | Progress: 36.201%
+Nonce: 1585440941 | Time:    520s | Rate:   3048.9 KH/s | Progress: 36.914%
+Nonce: 1616012208 | Time:    530s | Rate:   3049.1 KH/s | Progress: 37.626%
+Nonce: 1646525561 | Time:    540s | Rate:   3049.1 KH/s | Progress: 38.336%
+Nonce: 1677003943 | Time:    550s | Rate:   3049.1 KH/s | Progress: 39.046%
+Nonce: 1707496753 | Time:    560s | Rate:   3049.1 KH/s | Progress: 39.756%
+Nonce: 1738000155 | Time:    570s | Rate:   3049.1 KH/s | Progress: 40.466%
+Nonce: 1768252117 | Time:    580s | Rate:   3048.7 KH/s | Progress: 41.170%
+Nonce: 1798416002 | Time:    590s | Rate:   3048.2 KH/s | Progress: 41.873%
+Nonce: 1828428089 | Time:    600s | Rate:   3047.4 KH/s | Progress: 42.571%
+Nonce: 1858620483 | Time:    610s | Rate:   3046.9 KH/s | Progress: 43.274%
+Nonce: 1888983740 | Time:    620s | Rate:   3046.7 KH/s | Progress: 43.981%
+Nonce: 1919333409 | Time:    630s | Rate:   3046.6 KH/s | Progress: 44.688%
+Nonce: 1949753067 | Time:    640s | Rate:   3046.5 KH/s | Progress: 45.396%
+Nonce: 1980034306 | Time:    650s | Rate:   3046.2 KH/s | Progress: 46.101%
+Nonce: 2010530849 | Time:    660s | Rate:   3046.3 KH/s | Progress: 46.811%
+Nonce: 2040866100 | Time:    670s | Rate:   3046.1 KH/s | Progress: 47.518%
+Nonce: 2071249381 | Time:    680s | Rate:   3046.0 KH/s | Progress: 48.225%
+Nonce: 2101690225 | Time:    690s | Rate:   3045.9 KH/s | Progress: 48.934%
+Nonce: 2132112740 | Time:    700s | Rate:   3045.9 KH/s | Progress: 49.642%
+Nonce: 2162542418 | Time:    710s | Rate:   3045.8 KH/s | Progress: 50.351%
+Nonce: 2193008926 | Time:    720s | Rate:   3045.8 KH/s | Progress: 51.060%
+Nonce: 2223540588 | Time:    730s | Rate:   3045.9 KH/s | Progress: 51.771%
+Nonce: 2254087440 | Time:    740s | Rate:   3046.1 KH/s | Progress: 52.482%
+Nonce: 2284528317 | Time:    750s | Rate:   3046.0 KH/s | Progress: 53.191%
+Nonce: 2315023953 | Time:    760s | Rate:   3046.1 KH/s | Progress: 53.901%
+Nonce: 2344897018 | Time:    770s | Rate:   3045.3 KH/s | Progress: 54.596%
+Nonce: 2375160549 | Time:    780s | Rate:   3045.1 KH/s | Progress: 55.301%
+Nonce: 2405738640 | Time:    790s | Rate:   3045.2 KH/s | Progress: 56.013%
+Nonce: 2436270093 | Time:    800s | Rate:   3045.3 KH/s | Progress: 56.724%
+Nonce: 2466521551 | Time:    810s | Rate:   3045.1 KH/s | Progress: 57.428%
+Nonce: 2496927406 | Time:    820s | Rate:   3045.0 KH/s | Progress: 58.136%
+Nonce: 2527433683 | Time:    830s | Rate:   3045.1 KH/s | Progress: 58.846%
+Nonce: 2557572085 | Time:    840s | Rate:   3044.7 KH/s | Progress: 59.548%
+Nonce: 2587657597 | Time:    850s | Rate:   3044.3 KH/s | Progress: 60.249%
+Nonce: 2617914192 | Time:    860s | Rate:   3044.1 KH/s | Progress: 60.953%
+Nonce: 2648392371 | Time:    870s | Rate:   3044.1 KH/s | Progress: 61.663%
+Nonce: 2678623731 | Time:    880s | Rate:   3043.9 KH/s | Progress: 62.367%
+Nonce: 2708757405 | Time:    890s | Rate:   3043.5 KH/s | Progress: 63.068%
+Nonce: 2738820202 | Time:    900s | Rate:   3043.1 KH/s | Progress: 63.768%
+Nonce: 2769167496 | Time:    910s | Rate:   3043.0 KH/s | Progress: 64.475%
+Nonce: 2799709253 | Time:    920s | Rate:   3043.2 KH/s | Progress: 65.186%
+Nonce: 2830137231 | Time:    930s | Rate:   3043.2 KH/s | Progress: 65.894%
+Nonce: 2860733058 | Time:    940s | Rate:   3043.3 KH/s | Progress: 66.607%
+Nonce: 2891241117 | Time:    950s | Rate:   3043.4 KH/s | Progress: 67.317%
+Nonce: 2921816493 | Time:    960s | Rate:   3043.6 KH/s | Progress: 68.029%
+Nonce: 2952389601 | Time:    970s | Rate:   3043.7 KH/s | Progress: 68.741%
+Nonce: 2982911802 | Time:    980s | Rate:   3043.8 KH/s | Progress: 69.451%
+Nonce: 3013340574 | Time:    990s | Rate:   3043.8 KH/s | Progress: 70.160%
+Nonce: 3043801116 | Time:   1000s | Rate:   3043.8 KH/s | Progress: 70.869%
+Nonce: 3074322452 | Time:   1010s | Rate:   3043.9 KH/s | Progress: 71.580%
+Nonce: 3104857583 | Time:   1020s | Rate:   3044.0 KH/s | Progress: 72.291%
+Nonce: 3135378478 | Time:   1030s | Rate:   3044.1 KH/s | Progress: 73.001%
+Nonce: 3165768182 | Time:   1040s | Rate:   3044.0 KH/s | Progress: 73.709%
+Nonce: 3196161050 | Time:   1050s | Rate:   3044.0 KH/s | Progress: 74.416%
+Nonce: 3226664877 | Time:   1060s | Rate:   3044.0 KH/s | Progress: 75.127%
+Nonce: 3257128727 | Time:   1070s | Rate:   3044.0 KH/s | Progress: 75.836%
+Nonce: 3287622467 | Time:   1080s | Rate:   3044.1 KH/s | Progress: 76.546%
+Nonce: 3318157063 | Time:   1090s | Rate:   3044.2 KH/s | Progress: 77.257%
+Nonce: 3348667125 | Time:   1100s | Rate:   3044.2 KH/s | Progress: 77.967%
+Nonce: 3379148896 | Time:   1110s | Rate:   3044.3 KH/s | Progress: 78.677%
+Nonce: 3409713469 | Time:   1120s | Rate:   3044.4 KH/s | Progress: 79.389%
+Nonce: 3440328602 | Time:   1130s | Rate:   3044.5 KH/s | Progress: 80.101%
+Nonce: 3470919465 | Time:   1140s | Rate:   3044.7 KH/s | Progress: 80.814%
+Nonce: 3501509437 | Time:   1150s | Rate:   3044.8 KH/s | Progress: 81.526%
+Nonce: 3532047995 | Time:   1160s | Rate:   3044.9 KH/s | Progress: 82.237%
+Nonce: 3562491648 | Time:   1170s | Rate:   3044.9 KH/s | Progress: 82.946%
+Nonce: 3593012715 | Time:   1180s | Rate:   3044.9 KH/s | Progress: 83.656%
+Nonce: 3623579139 | Time:   1190s | Rate:   3045.0 KH/s | Progress: 84.368%
+Nonce: 3654029484 | Time:   1200s | Rate:   3045.0 KH/s | Progress: 85.077%
+Nonce: 3684397989 | Time:   1210s | Rate:   3045.0 KH/s | Progress: 85.784%
+Nonce: 3714884398 | Time:   1220s | Rate:   3045.0 KH/s | Progress: 86.494%
+Nonce: 3745388186 | Time:   1230s | Rate:   3045.0 KH/s | Progress: 87.204%
+Nonce: 3775960186 | Time:   1240s | Rate:   3045.1 KH/s | Progress: 87.916%
+Nonce: 3806515464 | Time:   1250s | Rate:   3045.2 KH/s | Progress: 88.627%
+Nonce: 3836951768 | Time:   1260s | Rate:   3045.2 KH/s | Progress: 89.336%
+Nonce: 3867488000 | Time:   1270s | Rate:   3045.3 KH/s | Progress: 90.047%
+Nonce: 3898042664 | Time:   1280s | Rate:   3045.3 KH/s | Progress: 90.758%
+Nonce: 3928554809 | Time:   1290s | Rate:   3045.4 KH/s | Progress: 91.469%
+Nonce: 3959016038 | Time:   1300s | Rate:   3045.4 KH/s | Progress: 92.178%
+Nonce: 3989451411 | Time:   1310s | Rate:   3045.4 KH/s | Progress: 92.887%
+Nonce: 4019950472 | Time:   1320s | Rate:   3045.4 KH/s | Progress: 93.597%
+Nonce: 4050561044 | Time:   1330s | Rate:   3045.5 KH/s | Progress: 94.309%
+Nonce: 4081099642 | Time:   1340s | Rate:   3045.6 KH/s | Progress: 95.021%
+Nonce: 4110966512 | Time:   1350s | Rate:   3045.2 KH/s | Progress: 95.716%
+Nonce: 4141005040 | Time:   1360s | Rate:   3044.9 KH/s | Progress: 96.415%
+Nonce: 4171410557 | Time:   1370s | Rate:   3044.8 KH/s | Progress: 97.123%
+Nonce: 4201593276 | Time:   1380s | Rate:   3044.6 KH/s | Progress: 97.826%
+Nonce: 4231788708 | Time:   1390s | Rate:   3044.5 KH/s | Progress: 98.529%
+Nonce: 4261892103 | Time:   1400s | Rate:   3044.2 KH/s | Progress: 99.230%
+Nonce: 4292340410 | Time:   1410s | Rate:   3044.2 KH/s | Progress: 99.939%
+Nonce space exhausted. Trying timestamp: 1761721936
+Nonce:   27805599 | Time:   1420s | Rate:   3044.2 KH/s | Progress: 0.647%
+Nonce:   58190189 | Time:   1430s | Rate:   3044.2 KH/s | Progress: 1.355%
+Nonce:   88339734 | Time:   1440s | Rate:   3044.0 KH/s | Progress: 2.057%
+Nonce:  118837298 | Time:   1450s | Rate:   3044.0 KH/s | Progress: 2.767%
+Nonce:  149339565 | Time:   1460s | Rate:   3044.0 KH/s | Progress: 3.477%
+Nonce:  179771393 | Time:   1470s | Rate:   3044.0 KH/s | Progress: 4.186%
+Nonce:  210022091 | Time:   1480s | Rate:   3043.9 KH/s | Progress: 4.890%
+Nonce:  240251373 | Time:   1490s | Rate:   3043.8 KH/s | Progress: 5.594%
+Nonce:  269928458 | Time:   1500s | Rate:   3043.3 KH/s | Progress: 6.285%
+Nonce:  300002175 | Time:   1510s | Rate:   3043.0 KH/s | Progress: 6.985%
+Nonce:  329009680 | Time:   1520s | Rate:   3042.1 KH/s | Progress: 7.660%
+Nonce:  359006446 | Time:   1530s | Rate:   3041.8 KH/s | Progress: 8.359%
+Nonce:  388891619 | Time:   1540s | Rate:   3041.5 KH/s | Progress: 9.055%
+Nonce:  419295833 | Time:   1550s | Rate:   3041.5 KH/s | Progress: 9.762%
+Nonce:  449447977 | Time:   1560s | Rate:   3041.3 KH/s | Progress: 10.465%
+Nonce:  479195022 | Time:   1570s | Rate:   3040.9 KH/s | Progress: 11.157%
+Nonce:  509102289 | Time:   1580s | Rate:   3040.6 KH/s | Progress: 11.853%
+Nonce:  539042049 | Time:   1590s | Rate:   3040.3 KH/s | Progress: 12.551%
+Nonce:  568951386 | Time:   1600s | Rate:   3039.9 KH/s | Progress: 13.247%
+Nonce:  598839290 | Time:   1610s | Rate:   3039.6 KH/s | Progress: 13.943%
+Nonce:  628732612 | Time:   1620s | Rate:   3039.3 KH/s | Progress: 14.639%
+Nonce:  658611721 | Time:   1630s | Rate:   3039.0 KH/s | Progress: 15.334%
+Nonce:  688619326 | Time:   1640s | Rate:   3038.8 KH/s | Progress: 16.033%
+Nonce:  718498040 | Time:   1650s | Rate:   3038.5 KH/s | Progress: 16.729%
+Nonce:  747561769 | Time:   1660s | Rate:   3037.7 KH/s | Progress: 17.406%
+Nonce:  776375882 | Time:   1670s | Rate:   3036.7 KH/s | Progress: 18.076%
+Nonce:  805276098 | Time:   1680s | Rate:   3035.9 KH/s | Progress: 18.749%
+Nonce:  835021164 | Time:   1690s | Rate:   3035.5 KH/s | Progress: 19.442%
+Nonce:  864996396 | Time:   1700s | Rate:   3035.3 KH/s | Progress: 20.140%
+Nonce:  895475368 | Time:   1710s | Rate:   3035.3 KH/s | Progress: 20.849%
+Nonce:  925947154 | Time:   1720s | Rate:   3035.4 KH/s | Progress: 21.559%
+Nonce:  955940884 | Time:   1730s | Rate:   3035.2 KH/s | Progress: 22.257%
+Nonce:  985793330 | Time:   1740s | Rate:   3034.9 KH/s | Progress: 22.952%
+Nonce: 1016133053 | Time:   1750s | Rate:   3034.9 KH/s | Progress: 23.659%
+Nonce: 1046706137 | Time:   1760s | Rate:   3035.0 KH/s | Progress: 24.371%
+Nonce: 1076972712 | Time:   1770s | Rate:   3035.0 KH/s | Progress: 25.075%
+Nonce: 1105647518 | Time:   1780s | Rate:   3034.1 KH/s | Progress: 25.743%
+Nonce: 1133206932 | Time:   1790s | Rate:   3032.5 KH/s | Progress: 26.385%
+Nonce: 1160600271 | Time:   1800s | Rate:   3030.9 KH/s | Progress: 27.022%
+Nonce: 1190117923 | Time:   1810s | Rate:   3030.4 KH/s | Progress: 27.710%
+Nonce: 1220121146 | Time:   1820s | Rate:   3030.3 KH/s | Progress: 28.408%
+Nonce: 1250192708 | Time:   1830s | Rate:   3030.1 KH/s | Progress: 29.108%
+Nonce: 1280097774 | Time:   1840s | Rate:   3029.9 KH/s | Progress: 29.805%
+Nonce: 1310234676 | Time:   1850s | Rate:   3029.8 KH/s | Progress: 30.506%
+Nonce: 1340403287 | Time:   1860s | Rate:   3029.8 KH/s | Progress: 31.209%
+Nonce: 1367393393 | Time:   1870s | Rate:   3028.0 KH/s | Progress: 31.837%
+Nonce: 1395429695 | Time:   1880s | Rate:   3026.8 KH/s | Progress: 32.490%
+Nonce: 1423433101 | Time:   1890s | Rate:   3025.6 KH/s | Progress: 33.142%
+Nonce: 1451403233 | Time:   1900s | Rate:   3024.4 KH/s | Progress: 33.793%
+Nonce: 1479212161 | Time:   1910s | Rate:   3023.1 KH/s | Progress: 34.441%
+Nonce: 1507515967 | Time:   1920s | Rate:   3022.1 KH/s | Progress: 35.100%
+Nonce: 1537533307 | Time:   1930s | Rate:   3022.0 KH/s | Progress: 35.798%
+Nonce: 1567676689 | Time:   1940s | Rate:   3022.0 KH/s | Progress: 36.500%
+Nonce: 1597603125 | Time:   1950s | Rate:   3021.8 KH/s | Progress: 37.197%
+Nonce: 1627147246 | Time:   1960s | Rate:   3021.5 KH/s | Progress: 37.885%
+Nonce: 1656983535 | Time:   1970s | Rate:   3021.3 KH/s | Progress: 38.580%
+Nonce: 1686701472 | Time:   1980s | Rate:   3021.0 KH/s | Progress: 39.272%
+Nonce: 1716557713 | Time:   1990s | Rate:   3020.9 KH/s | Progress: 39.967%
+Nonce: 1745059657 | Time:   2000s | Rate:   3020.0 KH/s | Progress: 40.630%
+Nonce: 1772083781 | Time:   2010s | Rate:   3018.4 KH/s | Progress: 41.260%
+Nonce: 1797863885 | Time:   2020s | Rate:   3016.3 KH/s | Progress: 41.860%
+Nonce: 1822554621 | Time:   2030s | Rate:   3013.6 KH/s | Progress: 42.435%
+Nonce: 1847583801 | Time:   2040s | Rate:   3011.1 KH/s | Progress: 43.017%
+Nonce: 1873300770 | Time:   2050s | Rate:   3008.9 KH/s | Progress: 43.616%
+Nonce: 1899415343 | Time:   2060s | Rate:   3007.0 KH/s | Progress: 44.224%
+Nonce: 1925393186 | Time:   2070s | Rate:   3005.0 KH/s | Progress: 44.829%
+Nonce: 1951675078 | Time:   2080s | Rate:   3003.2 KH/s | Progress: 45.441%
+Nonce: 1978207048 | Time:   2090s | Rate:   3001.5 KH/s | Progress: 46.059%
+
+======================================================================
+🎉 GENESIS BLOCK FOUND!
+======================================================================
+
+Block Hash:  00000000e41027343c14981bb43755b77046179e1c658b5fa38ccebf38ce3fcc
+Merkle Root: 25da88c5d4c2f2a89148f6bfe33862805bea3edb7712ae9babf5709aa1f99658
+Timestamp:   1761721936
+Nonce:       1981842781
+Bits:        0x1d00ffff
+
+Mining Stats:
+  Total time:   2091 seconds (34.850 minutes)
+  Total hashes: 6276810078
+  Hash rate:    3001.822 KH/s
+
+======================================================================
+
+Update patches/chainparams.cpp with:
+
+genesis = CreateGenesisBlock(pszTimestamp_main, genesisOutputScript_main,
+    1761721936, 1981842781, 0x1d00ffff, 1, 50 * COIN);
+consensus.hashGenesisBlock = genesis.GetHash();
+assert(consensus.hashGenesisBlock == uint256{"00000000e41027343c14981bb43755b77046179e1c658b5fa38ccebf38ce3fcc"});

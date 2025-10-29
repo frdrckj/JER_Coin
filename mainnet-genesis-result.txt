@@ -1,0 +1,32 @@
+======================================================================
+JER CRYPTOCURRENCY - MAINNET GENESIS BLOCK
+======================================================================
+
+Mined at: 2025-10-29 14:42:49.172427
+
+GENESIS BLOCK DETAILS:
+----------------------------------------------------------------------
+Block Hash:   00000000629a5c6e8cb346d2aec702b1b9b40e16cf1750dda0f0b08decee02bd
+Merkle Root:  1ee21a93152d5b4b7e2118ba6df9304448dfacdc11bf6cd138dae62e4991d3de
+Timestamp:    1761721935
+Nonce:        2105784136
+Bits:         0x1d00ffff
+Version:      1
+Message:      Jer 2025 - Empowering global payments
+
+======================================================================
+UPDATE chainparams.cpp WITH THESE VALUES:
+======================================================================
+
+// Mainnet genesis block (Line ~138-143)
+genesis = CreateGenesisBlock(1761721935, 2105784136, 0x1d00ffff, 1, 50 * COIN);
+assert(genesis.GetHash() == uint256S("0x00000000629a5c6e8cb346d2aec702b1b9b40e16cf1750dda0f0b08decee02bd"));
+assert(genesis.hashMerkleRoot == uint256S("0x1ee21a93152d5b4b7e2118ba6df9304448dfacdc11bf6cd138dae62e4991d3de"));
+
+======================================================================
+NEXT STEPS:
+======================================================================
+1. Update patches/chainparams.cpp with these values
+2. Run: ./scripts/sync-patches.sh
+3. Run: ./scripts/build-jer.sh
+4. Test before launching publicly!

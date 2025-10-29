@@ -18,6 +18,8 @@
 #include <script/script.h>
 #include <uint256.h>
 #include <util/chaintype.h>
+#include <arith_uint256.h>
+#include <ctime>
 #include <util/strencodings.h>
 
 #include <algorithm>
@@ -138,9 +140,12 @@ public:
 
         const char* pszTimestamp_main = "Jer 2025 - Empowering global payments";
         const CScript genesisOutputScript_main = CScript() << "04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f"_hex << OP_CHECKSIG;
-        genesis = CreateGenesisBlock(pszTimestamp_main, genesisOutputScript_main, 1761633768, 1, 0x207fffff, 1, 50 * COIN);
+
+        // JER Mainnet: Properly mined genesis block with Bitcoin difficulty (0x1d00ffff)
+        // Mined on October 29, 2025 - took 34.85 minutes (6.28 billion hashes @ 3,001 KH/s)
+        genesis = CreateGenesisBlock(pszTimestamp_main, genesisOutputScript_main, 1761721936, 1981842781, 0x1d00ffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256{"47a8ab4e7af4ae494bfb35503a7f8e49fd309876b2765a0fc225f99478d923c0"});
+        assert(consensus.hashGenesisBlock == uint256{"00000000e41027343c14981bb43755b77046179e1c658b5fa38ccebf38ce3fcc"});
         assert(genesis.hashMerkleRoot == uint256{"25da88c5d4c2f2a89148f6bfe33862805bea3edb7712ae9babf5709aa1f99658"});
 
         // Note that of those which support the service bits prefix, most only support a subset of
@@ -257,9 +262,14 @@ public:
 
         const char* pszTimestamp_test = "Jer Testnet 2025 - Testing the future";
         const CScript genesisOutputScript_test = CScript() << "04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f"_hex << OP_CHECKSIG;
-        genesis = CreateGenesisBlock(pszTimestamp_test, genesisOutputScript_test, 1761633769, 0, 0x207fffff, 1, 50 * COIN);
+
+        // JER Phase 2: Testnet with PROPER difficulty (0x1d00ffff) - MINED SUCCESSFULLY!
+        // Mined on: 2025-10-28
+        // Mining time: 41.5 minutes (443.2M hashes)
+        genesis = CreateGenesisBlock(pszTimestamp_test, genesisOutputScript_test, 1761633769, 2621284245, 0x1d00ffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256{"7ef5fad34553266ff67470ce8876aa90895f39be8b78ed301c184ac8934cfd41"});
+
+        assert(consensus.hashGenesisBlock == uint256{"00000000e0e5cfe696defac3c1fe60f075b137d964a703be34c47d85bf090815"});
         assert(genesis.hashMerkleRoot == uint256{"2c888fa0d0128539937a664934e0d143cb8d6b34ae916656239ebec067ebaeb9"});
 
         vFixedSeeds.clear();

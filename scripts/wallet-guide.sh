@@ -49,22 +49,22 @@ echo -e "${BLUE}3. Load an existing wallet:${NC}"
 echo "   $CLI_CMD loadwallet \"mywallet\""
 echo ""
 echo -e "${BLUE}4. Get wallet balance:${NC}"
-echo "   $CLI_CMD getbalance"
+echo "   $CLI_CMD -rpcwallet=\"mywallet\" getbalance"
 echo ""
 echo -e "${BLUE}5. Get a new receiving address:${NC}"
-echo "   $CLI_CMD getnewaddress"
+echo "   $CLI_CMD -rpcwallet=\"mywallet\" getnewaddress"
 echo ""
 echo -e "${BLUE}6. List all addresses:${NC}"
-echo "   $CLI_CMD listreceivedbyaddress 0 true"
+echo "   $CLI_CMD -rpcwallet=\"mywallet\" listreceivedbyaddress 0 true"
 echo ""
 echo -e "${BLUE}7. Get wallet info:${NC}"
-echo "   $CLI_CMD getwalletinfo"
+echo "   $CLI_CMD -rpcwallet=\"mywallet\" getwalletinfo"
 echo ""
 echo -e "${BLUE}8. Send JER to an address:${NC}"
-echo "   $CLI_CMD sendtoaddress <address> <amount>"
+echo "   $CLI_CMD -rpcwallet=\"mywallet\" -named sendtoaddress address=<address> amount=<amount> fee_rate=1"
 echo ""
 echo -e "${BLUE}9. List transactions:${NC}"
-echo "   $CLI_CMD listtransactions"
+echo "   $CLI_CMD -rpcwallet=\"mywallet\" listtransactions"
 echo ""
 echo -e "${BLUE}10. Backup wallet:${NC}"
 echo "   $CLI_CMD backupwallet \"/path/to/backup.dat\""
@@ -88,8 +88,20 @@ else
     echo "Loaded wallets:"
     echo "$WALLETS"
     echo ""
-    echo "Balance: $($CLI_CMD getbalance 2>/dev/null || echo 'N/A') JER"
-    echo ""
+
+    # Get list of wallet names (parse JSON array)
+    WALLET_NAMES=$(echo "$WALLETS" | grep -o '"[^"]*"' | tr -d '"')
+
+    if [ -n "$WALLET_NAMES" ]; then
+        echo "Wallet balances:"
+        while IFS= read -r wallet; do
+            if [ -n "$wallet" ]; then
+                BALANCE=$($CLI_CMD -rpcwallet="$wallet" getbalance 2>/dev/null || echo 'N/A')
+                echo "  $wallet: $BALANCE JER"
+            fi
+        done <<< "$WALLET_NAMES"
+        echo ""
+    fi
 fi
 
 echo ""

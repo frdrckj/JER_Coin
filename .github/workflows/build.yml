@@ -52,7 +52,9 @@ jobs:
           -DBUILD_BENCH=OFF \
           -DENABLE_WALLET=ON \
           -DWITH_BDB=ON \
-          -DENABLE_IPC=OFF
+          -DENABLE_IPC=OFF \
+          -DBUILD_TX=ON \
+          -DBUILD_WALLET_TOOL=ON
 
     - name: Build
       run: |
@@ -112,7 +114,9 @@ jobs:
           -DBUILD_BENCH=OFF \
           -DENABLE_WALLET=ON \
           -DWITH_BDB=ON \
-          -DENABLE_IPC=OFF
+          -DENABLE_IPC=OFF \
+          -DBUILD_TX=ON \
+          -DBUILD_WALLET_TOOL=ON
 
     - name: Build
       run: |
@@ -145,11 +149,36 @@ jobs:
         name: jer-linux-x64
         path: ./bin
 
+    - name: Install runtime dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libevent-2.1-7 \
+          libevent-pthreads-2.1-7 \
+          libevent-core-2.1-7 \
+          libevent-extra-2.1-7 \
+          libboost-system1.74.0 \
+          libboost-filesystem1.74.0 \
+          libboost-thread1.74.0 \
+          libdb5.3++ \
+          libminiupnpc17 \
+          libzmq5 \
+          libsqlite3-0
+
     - name: Make binaries executable
       run: chmod +x ./bin/*
 
+    - name: Check binary dependencies
+      run: |
+        echo "Checking bitcoind dependencies:"
+        ldd ./bin/bitcoind || true
+        echo ""
+        echo "Installed libevent packages:"
+        dpkg -l | grep libevent || true
+
     - name: Start regtest node
       run: |
+        mkdir -p /tmp/jer-test
         ./bin/bitcoind -regtest -daemon -datadir=/tmp/jer-test
         sleep 5
 

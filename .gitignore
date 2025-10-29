@@ -81,8 +81,6 @@ indexes/
 # Database files
 *.dat
 *.log
-!CLAUDE.md
-.claude/
 
 # Peer data
 peers.dat
