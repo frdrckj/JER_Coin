@@ -1,16 +1,14 @@
 # JER Cryptocurrency
 
-**A Bitcoin-based cryptocurrency with custom network configuration**
+**A Bitcoin Core–based cryptocurrency with custom network configuration**
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
-[![Network](https://img.shields.io/badge/network-configured-success.svg)]()
 
 ---
 
 ## 🎯 Overview
 
-JER is a cryptocurrency built on Bitcoin Core v30+ with custom network parameters, unique address prefixes, and dedicated network infrastructure.
+JER is a cryptocurrency built on Bitcoin Core with custom network parameters, a unique bech32 address prefix, and freshly mined genesis blocks. It tracks upstream Bitcoin Core and patches a single file — `chainparams.cpp` — so the consensus rules and economics are Bitcoin's, while the network identity is JER's own.
 
 ### Network Identity
 
@@ -26,10 +24,10 @@ JER is a cryptocurrency built on Bitcoin Core v30+ with custom network parameter
 
 - ✅ **Unique Network**: Custom magic bytes (JERU/JERT) separate from Bitcoin
 - ✅ **Custom Ports**: No conflicts with Bitcoin or other cryptocurrencies
-- ✅ **Bech32 Addresses**: Modern address format (jer1... / tjer1...)
-- ✅ **Proven Economics**: Bitcoin's tested model (21M supply, 50 JER reward)
-- ✅ **CMake Build**: Modern build system
-- ✅ **Fully Documented**: Complete configuration and deployment guides
+- ✅ **Bech32 Addresses**: Native SegWit address format (jer1... / tjer1...)
+- ✅ **Freshly Mined Genesis**: New genesis blocks mined for mainnet, testnet, and regtest
+- ✅ **Proven Economics**: Bitcoin's tested model (21M supply, 50 JER block reward)
+- ✅ **CMake Build**: Modern build system, with Linux and macOS CI
 
 ---
 
@@ -37,9 +35,8 @@ JER is a cryptocurrency built on Bitcoin Core v30+ with custom network parameter
 
 ### Prerequisites
 
-- macOS, Linux, or Windows WSL
-- CMake 3.16+
-- C++17 compiler
+- macOS or Linux
+- CMake and a C++20-capable compiler (as required by current Bitcoin Core)
 - Standard build tools
 
 ### Build from Source
@@ -58,7 +55,7 @@ cd JER_Coin
 
 
 **What `setup.sh` does:**
-- Clones Bitcoin Core from official repository
+- Clones Bitcoin Core from the official repository
 - Applies JER modifications (custom network parameters)
 - Checks for required dependencies
 - Prepares the build environment
@@ -86,9 +83,9 @@ cd JER_Coin
 ### Technical Details
 
 ```
-Base:               Bitcoin Core v30+
+Base:               Bitcoin Core (upstream master)
 Build System:       CMake
-Consensus:          Proof of Work (SHA-256)
+Consensus:          Proof of Work (SHA-256) — inherited from Bitcoin
 Address Format:     Bech32 (native SegWit)
 ```
 
@@ -99,7 +96,7 @@ Address Format:     Bech32 (native SegWit)
 ### Project Structure
 
 ```
-jer-cryptocurrency/
+JER_Coin/
 ├── patches/               # JER modifications to Bitcoin Core
 │   ├── chainparams.cpp   # Modified network configuration
 │   └── README.md         # Patch documentation
@@ -110,19 +107,17 @@ jer-cryptocurrency/
 │   ├── test-mining.sh    # Test mining functionality
 │   └── wallet-guide.sh   # Wallet command reference
 ├── setup.sh               # Setup script (clones Bitcoin Core, applies patches)
-├── bitcoin-core/          # Bitcoin Core (cloned by setup.sh, not in git)
-└── docs/                  # Documentation (various .md files)
+└── bitcoin-core/          # Bitcoin Core (cloned by setup.sh, not in git)
 ```
 
 ### Key Modifications
 
-All modifications are in `patches/chainparams.cpp` (applied to Bitcoin Core):
+All modifications live in `patches/chainparams.cpp`, applied over Bitcoin Core by `setup.sh`:
 
-- **Lines 130-134**: Mainnet magic bytes (JERU) and port (8732)
-- **Line 162**: Mainnet bech32 prefix (jer)
-- **Lines 248-253**: Testnet magic bytes (JERT) and port (18732)
-- **Line 277**: Testnet bech32 prefix (tjer)
+- **Mainnet**: magic bytes `JERU`, P2P port `8732`, bech32 HRP `jer`, freshly mined genesis block
+- **Testnet**: magic bytes `JERT`, P2P port `18732`, bech32 HRP `tjer`, freshly mined genesis block
+- **Regtest**: freshly mined genesis block (network params otherwise Bitcoin defaults)
 
-**Note**: Only `chainparams.cpp` is modified. All other Bitcoin Core code remains unchanged.
+**Note**: Only `chainparams.cpp` is modified — consensus rules, economics, and the rest of Bitcoin Core are unchanged. Legacy (base58) address prefixes remain Bitcoin's defaults; only the bech32 prefix is JER-specific.
 
 ---
